@@ -1,0 +1,13 @@
+#!name=BoxJs
+#!desc=BoxJs TF 
+# >>> 地址在下方,复制到浏览器打开即可
+#boxjs.net
+
+[Script]
+Rewrite: BoxJs = type=http-request, pattern=^https?://boxjs.net, script-path=https://gitee.com/chavyleung/scripts/raw/master/box/chavy.boxjs.js, requires-body=true, timeout=120
+
+[MITM]
+hostname = boxjs.net
+
+[URL Rewrite]
+^https://boxjs.net http://boxjs.net 302
