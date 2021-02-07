@@ -1,8 +1,0 @@
-#!name=AQI-US
-#!desc=iOS 原生天气 App 不显示小城市和县区空气质量，因为和风天气没有监测站。没关系！现在脚本现在支持这些地方的空气质量显示，全地区可以显示 AQI-US 标准的 AQI。
-
-[MITM]
-hostname = weather-data.apple.com
-
-[Script]
-AQI-US = type=http-response, pattern=https://weather-data.apple.com/v1/weather/[\w-]+/[0-9]+\.[0-9]+/[0-9]+\.[0-9]+\?, requires-body=true, script-path= https://raw.githubusercontent.com/SuernWU/surge/master/AQI.js
