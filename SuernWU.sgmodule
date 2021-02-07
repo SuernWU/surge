@@ -1,5 +1,5 @@
 #!name=All
-#!desc=iOS原生天气AppAQI-US,淘宝京东比价,BoxJs TF,知乎京东油管去广告,微信跳转屏蔽链接, TestFlight区域限制解除
+#!desc=iOS原生天气AppAQI-US,淘宝京东比价,BoxJs TF,知乎京东油管去广告,微信跳转屏蔽链接,TestFlight区域限制解除,iOS14 IPA应用安装
 
 [Rule]
 # 知乎广告拦截
@@ -51,6 +51,9 @@ tbopener.js = type=http-response,pattern=^https?:\/\/weixin110\.qq\.com\/cgi-bin
 #TestFlight区域限制解除
 TF下载修正 = type=http-request,pattern=^https?:\/\/testflight\.apple\.com\/v\d\/accounts\/.+?\/install$,requires-body=1,max-size=0,script-path=https://gist.githubusercontent.com/NobyDa/9be418b93afc5e9c8a8f4d28ae403cf2/raw/TF_Download.js
 
+#解决iOS14或IPadOS14无法在移动端安装IPA的问题. 注: 需要使用Shu+捷径或Jsbox辅助安装.
+IPA应用安装 = type=http-request,pattern=^https:\/\/nobyda/(install|download)(\/jsbox)?$,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/IPA_install.js
+
 [MITM]
-hostname = %APPEND% trade-acs.m.taobao.com, api.m.jd.com, weather-data.apple.com, boxjs.net, duckduckgo.com, www.zhihu.com, api.zhihu.com, zhuanlan.zhihu.com, api.m.jd.com, *.googlevideo.com, weixin110.qq.com, testflight.apple.com
+hostname = %APPEND% trade-acs.m.taobao.com, api.m.jd.com, weather-data.apple.com, boxjs.net, duckduckgo.com, www.zhihu.com, api.zhihu.com, zhuanlan.zhihu.com, api.m.jd.com, *.googlevideo.com, weixin110.qq.com, testflight.apple.com, nobyda
 
