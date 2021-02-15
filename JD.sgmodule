@@ -85,19 +85,6 @@
 # >>> 京东家庭号
 京东家庭号 = type=cron, cronexp="0 15 */7 * * *", wake-system=1, timeout=600, script-path=https://gitee.com/lxk0301/jd_scripts/raw/master/jd_family.js
 
-# > 非京豆任务
-# >>> 东东萌宠 {06:08 12:08 18:08} 
-东东萌宠 = type=cron, cronexp="0 8 6-18/6 * * *", wake-system=1, timeout=600, script-path=https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_pet.js
-# >>> 摇钱树 {*/3:11}
-摇钱树 = type=cron, cronexp="0 11 */3 * * *", wake-system=1, timeout=600, script-path=https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_moneyTree.js
-# >>> 金融养猪 {*/3:12}
-金融养猪 = type=cron, cronexp="0 12 */3 * * *", wake-system=1, timeout=600, script-path=https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_pigPet.js
-# >>> 天天提鹅 {*/3:14}
-天天提鹅 = type=cron, cronexp="0 14 */3 * * *", wake-system=1, timeout=600, script-path=https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_daily_egg.js
-# >>> 东东工厂 {*:16}
-东东工厂 = type=cron, cronexp="0 16 * * * *", wake-system=1, timeout=600, script-path=https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_jdfactory.js
-# >>> 京喜工厂 {*/3:18}
-京喜工厂 = type=cron, cronexp="0 18 */3 * * *", wake-system=1, timeout=600, script-path=https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_dreamFactory.js
 # >>> 京喜财富岛 {*:20}
 京喜财富岛 = type=cron, cronexp="0 20 * * * *", wake-system=1, timeout=600, script-path=https://raw.githubusercontent.com/MoPoQAQ/Script/main/Me/jx_cfd.js
 
