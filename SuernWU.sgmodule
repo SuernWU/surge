@@ -1,15 +1,20 @@
 #!name=自用实时更新
-#!desc=iOS原生天气AppAQI-US,淘宝京东比价,BoxJs TF,知乎京东油管去广告,微信跳转屏蔽链接,TestFlight区域限制解除,iOS14 IPA应用安装
+#!desc=iOS原生天气AppAQI-US,淘宝京东比价,BoxJs TF,知乎京东油管去广告,微信跳转屏蔽链接,TestFlight区域限制解除,iOS14 IPA应用安装,GitHub 访问加速
 
 [Rule]
 # 知乎广告拦截
 RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/zhihu/zhihu_remove_ads.list,REJECT
 # 京东启动页去广告
 URL-REGEX,^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=start$,REJECT-TINYGIF
+#GitHub 访问加速
+DOMAIN,github.pengym.workers.dev,DIRECT
 
 [URL Rewrite]
 #BoxJs TF
 ^https://boxjs.net http://boxjs.net 302
+
+#GitHub 访问加速
+^(https?:\/\/(?:raw|gist)\.githubusercontent\.com\/.+)$ https://github.pengym.workers.dev/$1 302
 
 #Q-Search
 ^https:\/\/duckduckgo.com\/\?q=bd\+([^&]+).+ https://www.baidu.com/s?wd=$1 302
@@ -55,5 +60,5 @@ TF下载修正 = type=http-request,pattern=^https?:\/\/testflight\.apple\.com\/v
 IPA应用安装 = type=http-request,pattern=^https:\/\/nobyda/(install|download)(\/jsbox)?$,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/IPA_install.js
 
 [MITM]
-hostname = %APPEND% trade-acs.m.taobao.com, api.m.jd.com, weather-data.apple.com, boxjs.net, duckduckgo.com, www.zhihu.com, api.zhihu.com, zhuanlan.zhihu.com, api.m.jd.com, *.googlevideo.com, weixin110.qq.com, testflight.apple.com, nobyda
+hostname = %APPEND% trade-acs.m.taobao.com, api.m.jd.com, weather-data.apple.com, boxjs.net, duckduckgo.com, www.zhihu.com, api.zhihu.com, zhuanlan.zhihu.com, api.m.jd.com, *.googlevideo.com, weixin110.qq.com, testflight.apple.com, nobyda, raw.githubusercontent.com, gist.githubusercontent.com
 
