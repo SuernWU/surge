@@ -87,6 +87,7 @@
 
 # >>> 京喜财富岛 {*:20}
 京喜财富岛 = type=cron, cronexp="0 20 * * * *", wake-system=1, timeout=600, script-path=https://raw.githubusercontent.com/SuernWU/surge/master/jx_cfd.js
+
 # >>> 半自动赚京豆 {17:30}
 半自动领京豆 = type=cron, cronexp="30 17 * * *", wake-system=1, timeout=600, script-path=https://raw.githubusercontent.com/whyour/hundun/master/quanx/jd_zjd.js
 
