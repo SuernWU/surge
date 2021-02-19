@@ -1,13 +1,11 @@
 #!name=自用实时更新
-#!desc=iOS原生天气AppAQI-US,淘宝京东比价,BoxJs TF,知乎京东油管去广告,微信跳转屏蔽链接,TestFlight区域限制解除,iOS14 IPA应用安装,GitHub 访问加速
+#!desc=iOS原生天气AppAQI-US,淘宝京东比价,BoxJs TF,知乎京东油管去广告,微信跳转屏蔽链接,TestFlight区域限制解除,iOS14 IPA应用安装,
 
 [Rule]
 # 知乎广告拦截
 RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/zhihu/zhihu_remove_ads.list,REJECT
 # 京东启动页去广告
 URL-REGEX,^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=start$,REJECT-TINYGIF
-#GitHub 访问加速
-DOMAIN,github.pengym.workers.dev,DIRECT
 
 [URL Rewrite]
 #BoxJs TF
