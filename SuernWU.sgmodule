@@ -11,9 +11,6 @@ URL-REGEX,^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=start$,REJECT-
 #BoxJs TF
 ^https://boxjs.net http://boxjs.net 302
 
-#GitHub 访问加速
-^(https?:\/\/(?:raw|gist)\.githubusercontent\.com\/.+)$ https://github.pengym.workers.dev/$1 302
-
 #Q-Search
 ^https:\/\/duckduckgo.com\/\?q=bd\+([^&]+).+ https://www.baidu.com/s?wd=$1 302
 ^https:\/\/duckduckgo.com\/\?q=db\+([^&]+).+ https://m.douban.com/search/?query=$1 302
@@ -58,5 +55,5 @@ TF下载修正 = type=http-request,pattern=^https?:\/\/testflight\.apple\.com\/v
 IPA应用安装 = type=http-request,pattern=^https:\/\/nobyda/(install|download)(\/jsbox)?$,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/IPA_install.js
 
 [MITM]
-hostname = %APPEND% trade-acs.m.taobao.com, api.m.jd.com, weather-data.apple.com, boxjs.net, duckduckgo.com, www.zhihu.com, api.zhihu.com, zhuanlan.zhihu.com, api.m.jd.com, *.googlevideo.com, weixin110.qq.com, testflight.apple.com, nobyda, raw.githubusercontent.com, gist.githubusercontent.com
+hostname = %APPEND% trade-acs.m.taobao.com, api.m.jd.com, weather-data.apple.com, boxjs.net, duckduckgo.com, www.zhihu.com, api.zhihu.com, zhuanlan.zhihu.com, api.m.jd.com, *.googlevideo.com, weixin110.qq.com, testflight.apple.com, nobyda, 
 
