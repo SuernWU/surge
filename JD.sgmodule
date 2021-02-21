@@ -91,7 +91,6 @@
 # >>> 半自动赚京豆 {20:30}
 半自动领京豆 = type=cron, cronexp="30 20 * * *", wake-system=1, timeout=600, script-path=https://raw.githubusercontent.com/whyour/hundun/master/quanx/jd_zjd.js
 
-京东极速 = type=cron,cronexp="0 0 0 * * *",wake-system=1,timeout=3600,script-path=https://raw.githubusercontent.com/SuernWU/surge/master/jdjs.js
 
 [MITM]
 hostname = %APPEND% api.m.jd.com, jdjoy.jd.com, draw.jdfcloud.com,
