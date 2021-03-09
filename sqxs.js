@@ -1,7 +1,7 @@
 /*
 
 脚本名称："书旗小说多账户号稳定版";
-适用版本：verson 4.3.2 ; 适用版本：verson 4.3.2 ; 适用版本：verson 4.3.2 ;（重要事情说三遍）
+适用版本：verson 4.3.6 ; 适用版本：verson 4.3.6 ; 适用版本：verson 4.3.6 ;（重要事情说三遍）
 作者：caixukun;
 
 
@@ -102,8 +102,8 @@ async function all() {
                 await vediogoldprize(0);
 
                 //看视频奖励抽奖次数
-                await vediodrawprize(0);
-
+                //await vediodrawprize(0);
+				await draw(0);
                 //个人信息
                 await userinfo();
             }
@@ -123,7 +123,7 @@ async function all() {
                 readckArr = $.getdata(`readck${i}`).split('&&');
                 receivecoinckArr = $.getdata(`receivecoinck${i}`).split('&&');
                 vediogoldprizeckArr = $.getdata(`vediogoldprizeck${i}`).split('&&');
-                vediodrawprizeckArr = $.getdata(`vediodrawprizeck${i}`).split('&&');
+                //vediodrawprizeckArr = $.getdata(`vediodrawprizeck${i}`).split('&&');
                 drawckArr = $.getdata(`drawck${i}`).split('&&');
                 userinfock = $.getdata(`userinfock${i}`);
                 $.log('\n============ 【书旗小说' + i + '】=============');
@@ -140,9 +140,9 @@ async function all() {
                 //看视频奖励金币
                 await vediogoldprize(0);
 
-                //看视频奖励抽奖次数
-                await vediodrawprize(0);
-
+                //抽奖奖励金币
+                //await vediodrawprize(0);
+				await draw(0);
                 //个人信息
                 await userinfo();
             }
@@ -286,7 +286,7 @@ function vediodrawprize(k) {
                 if (error) {
                     $.log("视频抽奖请求失败,再次尝试视频抽奖");
                     await $.wait(5000);
-                    await vediogoldprize();
+                    await vediodrawprize();
                 } else {
                     const result = JSON.parse(data)
                         //$.log(data);
@@ -332,10 +332,11 @@ function draw(k) {
                     const result = JSON.parse(data)
                         //$.log(data);
                         if (result.status == 200) {
+							k++;
                             $.log("【抽奖任务】抽奖成功，获得" + result.data.prizeList[0].prizeName);
                             drawgold += parseInt(result.data.prizeList[0].prizeName);
                             await $.wait(5000);
-                            await vediodrawprize(k);
+                            await draw(k);
                         } else {
                             $.log("【抽奖任务】抽奖失败," + result.message);
                             //$.log(data);
