@@ -1,0 +1,36 @@
+#!name=姐姐书旗
+#!desc=颜值控
+
+[Script]
+//一般版-重写引用1️⃣✅
+//用户信息 = type=http-request,pattern=https://render.shuqireader.com/load/resource,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/CenBoMin/GithubSync/main/SHUQI/cookie.js, requires-body=true
+//阅读时长信息 = type=http-request,pattern=https://ocean.shuqireader.com/api/activity/v1/activity/boxTask?,requires-header=1,max-size=0,script-path=https://raw.githubusercontent.com/CenBoMin/GithubSync/main/SHUQI/cookie.js, requires-body=true
+//视频信息 = type=http-request,pattern=https://ocean.shuqireader.com/api/ad/adserver/v1/api/getAdInfo?,requires-header=1,max-size=0,script-path=https://raw.githubusercontent.com/CenBoMin/GithubSync/main/SHUQI/cookie.js, requires-body=true
+//钱包 = type=http-request,pattern=https://ocean.shuqireader.com/api/activity/xapi/gold/withdraw/info,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/CenBoMin/GithubSync/main/SHUQI/cookie.js, requires-body=true
+//气泡 = type=http-request,pattern=https://ocean.shuqireader.com/api/prizecenter/xapi/prize/bubble/info,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/CenBoMin/GithubSync/main/SHUQI/cookie.js, requires-body=true
+//一键收取 = type=http-request,pattern=https://ocean.shuqireader.com/api/prizecenter/xapi/prize/manual/receive,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/CenBoMin/GithubSync/main/SHUQI/cookie.js, requires-body=true
+//签到 = type=http-request,pattern=https://ocean.shuqireader.com/api/activity/xapi/signin/v5/signInAction,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/CenBoMin/GithubSync/main/SHUQI/cookie.js, requires-body=true
+//阅读小说30秒金币 = type=http-request,pattern=https://ocean.shuqireader.com/api/ad/v1/api/prize/readpage/pendant/lottery,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/CenBoMin/GithubSync/main/SHUQI/cookie.js, requires-body=true
+//邀请书友 = type=http-request,pattern=https://ocean.shuqireader.com/api/activity/v1/task/reward,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/CenBoMin/GithubSync/main/SHUQI/cookie.js, requires-body=true
+//看视频 = type=http-request,pattern=https://ocean.shuqireader.com/api/ad/v1/api/prize/lottery,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/CenBoMin/GithubSync/main/SHUQI/cookie.js, requires-body=true
+//极速版-重写引用2️⃣✅
+//用户信息 = type=http-request,pattern=https://render.shuqireader.com/load/resource,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/CenBoMin/GithubSync/main/SHUQI/spcookie.js, requires-body=true
+//签到 = type=http-request,pattern=https://ocean.shuqireader.com/api/activity/xapi/signin/v5/signInAction,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/CenBoMin/GithubSync/main/SHUQI/spcookie.js, requires-body=true
+//阅读小说金币 = type=http-request,pattern=https://ocean.shuqireader.com/api/activity/v1/activity/pendant/lottery?,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/CenBoMin/GithubSync/main/SHUQI/spcookie.js, requires-body=true
+//一般页面看视频1 = type=http-request,pattern=https://ocean.shuqireader.com/api/ad/v1/api/prize/lottery,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/CenBoMin/GithubSync/main/SHUQI/spcookie.js, requires-body=true
+//视频信息 = type=http-request,pattern=https://ocean.shuqireader.com/api/ad/adserver/v1/api/getAdInfo?,requires-header=1,max-size=0,script-path=https://raw.githubusercontent.com/CenBoMin/GithubSync/main/SHUQI/spcookie.js, requires-body=true
+//邀请书友 = type=http-request,pattern=https://ocean.shuqireader.com/api/activity/v1/task/reward,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/CenBoMin/GithubSync/main/SHUQI/spcookie.js, requires-body=true
+//一般版-福利转转转-重写引用3️⃣✅
+//转盘机会 = type=http-request,pattern=https://ocean.shuqireader.com/api/ad/v1/api/prize/lottery,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/CenBoMin/GithubSync/main/SHUQI/lottery.js, requires-body=true
+//转盘抽奖 = type=http-request,pattern=https://ocean.shuqireader.com/api/activity/activity/v1/lottery/draw?,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/CenBoMin/GithubSync/main/SHUQI/lottery.js, requires-body=true
+//转盘信息 = type=http-request,pattern=https://ocean.shuqireader.com/api/activity/activity/v1/lottery/info?,requires-header=1,max-size=0,script-path=https://raw.githubusercontent.com/CenBoMin/GithubSync/main/SHUQI/lottery.js, requires-body=true
+//极速浏览书城 = type=http-request,pattern=https://ocean.shuqireader.com/api/activity/v1/task/reward?,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/CenBoMin/GithubSync/main/SHUQI/lottery.js, requires-body=true
+//极速版-刷时长-重写引用4️⃣✅
+/阅读时长上传 = type=http-request,pattern=https://jcollection.shuqireader.com/collection/iosapi/reading/upload,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/CenBoMin/GithubSync/main/SHUQI/everday.js, requires-body=true
+//极速签到视频2 = type=http-request,pattern=https://ocean.shuqireader.com/api/ad/v1/api/prize/lottery,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/CenBoMin/GithubSync/main/SHUQI/everday.js, requires-body=true
+//🔁✅
+书旗小说 = type=cron,cronexp="*/4 * * * *",script-path=https://raw.githubusercontent.com/CenBoMin/GithubSync/main/SHUQI/shuqi.js,script-update-interval=0
+书旗小说刷时长 = type=cron,cronexp="*/6 * * * *",script-path=https://raw.githubusercontent.com/CenBoMin/GithubSync/main/SHUQI/shuqireadtime.js,script-update-interval=0
+
+[MITM]
+hostname = %APPEND% render.shuqireader.com,ocean.shuqireader.com, jcollection.shuqireader.com
