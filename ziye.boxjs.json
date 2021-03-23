@@ -3,7 +3,7 @@
   "name": "ziye 脚本订阅",
   "author": "@ZIYE",
   "icon": "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/ziye.png",
-  "repo": "https://github.com/6Svip120apk69",
+  "repo": "https://github.com/SuernWU",
   "apps": [
     {
       "id": "qczjspeed",
@@ -141,12 +141,12 @@
           "desc": "默认0点后提现，可设置 0 ~ 23  "
         }
       ],
-      "repo": "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/Task/qczjspeed.js",
+      "repo": "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/qczjspeed.js",
       "icons": [
         "https://raw.githubusercontent.com/Orz-3/task/master/qczj.png",
         "https://raw.githubusercontent.com/Orz-3/task/master/qczj.png"
       ],
-      "script": "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/Task/qczjspeed.js"
+      "script": "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/qczjspeed.js"
     },
     {
       "id": "xiaole",
@@ -190,12 +190,12 @@
           "desc": "指定任务最多跑几个账号，根据抓取的账号数据个数来设值"
         }
       ],
-      "repo": "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/Task/xiaole.js",
+      "repo": "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/xiaole.js",
       "icons": [
-        "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/Task/xiaole.png",
-        "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/Task/xiaole.png"
+        "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/xiaole.png",
+        "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/xiaole.png"
       ],
-      "script": "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/Task/xiaole.js"
+      "script": "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/xiaole.js"
     },
     {
       "id": "iboxpay",
@@ -307,12 +307,12 @@
           "desc": "输入短信验证码，默认为0，不启动获取token功能"
         }
       ],
-      "repo": "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/Task/iboxpay.js",
+      "repo": "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/iboxpay.js",
       "icons": [
-        "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/Task/iboxpay.png",
-        "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/Task/iboxpay.png"
+        "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/iboxpay.png",
+        "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/iboxpay.png"
       ],
-      "script": "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/Task/iboxpay.js"
+      "script": "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/iboxpay.js"
     },
     {
       "id": "flw",
@@ -450,12 +450,12 @@
           "desc": "默认0，可设置设置 0 5 50 100"
         }
       ],
-      "repo": "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/Task/flw.js",
+      "repo": "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/flw.js",
       "icons": [
-        "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/Task/flw.png",
-        "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/Task/flw.png"
+        "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/flw.png",
+        "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/flw.png"
       ],
-      "script": "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/Task/flw.js"
+      "script": "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/flw.js"
     },
     {
       "id": "githubAC",
@@ -766,12 +766,12 @@
           "desc": "可设置0 不启动、js序号数 指定哪个js任务随githubAC运行而启动、 888 全部js启动"
         }
       ],
-      "repo": "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/Task/githubAC.js",
+      "repo": "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/githubAC.js",
       "icons": [
         "https://github.githubassets.com/images/modules/site/home/astro-mona.jpg",
         "https://github.githubassets.com/images/modules/site/home/astro-mona.jpg"
       ],
-      "script": "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/Task/githubAC.js"
+      "script": "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/githubAC.js"
     },
     {
       "id": "zhima",
@@ -842,12 +842,12 @@
           "desc": "0不提现，可设置 0 0.3 0.5 1 5 10 30 50 100 等"
         }
       ],
-      "repo": "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/Task/zhima.js",
+      "repo": "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/zhima.js",
       "icons": [
-        "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/Task/zhima.png",
-        "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/Task/zhima.png"
+        "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/zhima.png",
+        "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/zhima.png"
       ],
-      "script": "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/Task/zhima.js"
+      "script": "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/zhima.js"
     },
     {
       "id": "QQread",
@@ -891,12 +891,12 @@
           "desc": "指定任务最多跑几个账号，根据抓取的账号数据个数来设值"
         }
       ],
-      "repo": "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/Task/QQread.js",
+      "repo": "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/QQread.js",
       "icons": [
-        "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/Task/QQread.png",
-        "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/Task/QQread.png"
+        "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/QQread.png",
+        "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/QQread.png"
       ],
-      "script": "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/Task/QQread.js"
+      "script": "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/QQread.js"
     },
     {
       "id": "bububao",
@@ -947,12 +947,12 @@
           "desc": "0不提现，可设置 0 0.3 50 100 200 888  设置888由上至下循环提现 "
         }
       ],
-      "repo": "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/Task/bububao.js",
+      "repo": "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/bububao.js",
       "icons": [
-        "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/Task/bububao.png",
-        "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/Task/bububao.png"
+        "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/bububao.png",
+        "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/bububao.png"
       ],
-      "script": "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/Task/bububao.js"
+      "script": "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/bububao.js"
     },
     {
       "id": "yuedongzu",
@@ -1003,12 +1003,12 @@
           "desc": "0不提现，可设置 0 0.3 1 5 50 100 200 888  设置888由上至下循环提现 "
         }
       ],
-      "repo": "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/Task/yuedongzu.js",
+      "repo": "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/yuedongzu.js",
       "icons": [
-        "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/Task/yuedongzu.png",
-        "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/Task/yuedongzu.png"
+        "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/yuedongzu.png",
+        "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/yuedongzu.png"
       ],
-      "script": "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/Task/yuedongzu.js"
+      "script": "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/yuedongzu.js"
     },
     {
       "id": "qmyd",
@@ -1059,12 +1059,12 @@
           "desc": "0不提现，可设置 0 0.3 1 10 20 30 100 200 300 888  设置888由上至下循环提现 "
         }
       ],
-      "repo": "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/Task/qmyd.js",
+      "repo": "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/qmyd.js",
       "icons": [
-        "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/Task/qmyd.png",
-        "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/Task/qmyd.png"
+        "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/qmyd.png",
+        "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/qmyd.png"
       ],
-      "script": "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/Task/yuedongzu.js"
+      "script": "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/yuedongzu.js"
     },
     {
       "id": "shuqi",
@@ -1615,12 +1615,12 @@
           "desc": "0关闭 1开启,默认关闭"
         }
       ],
-      "repo": "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/Task/shuqi.js",
+      "repo": "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/shuqi.js",
       "icons": [
-        "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/Task/shuqi.png",
-        "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/Task/shuqi.png"
+        "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/shuqi.png",
+        "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/shuqi.png"
       ],
-      "script": "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/Task/yuedongzu.js"
+      "script": "https://raw.githubusercontent.com/SuernWU/tongbuziye/ZIYE/Task/yuedongzu.js“
     }
   ]
 }
