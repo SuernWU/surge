@@ -8,8 +8,6 @@ RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/s
 URL-REGEX,^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=start$,REJECT-TINYGIF
 
 [URL Rewrite]
-#BoxJs TF
-^https://boxjs.net http://boxjs.net 302
 
 #Q-Search
 ^https:\/\/duckduckgo.com\/\?q=bd\+([^&]+).+ https://www.baidu.com/s?wd=$1 302
@@ -37,7 +35,8 @@ AQI-US = type=http-response, pattern=https://weather-data.apple.com/v1/weather/[
 京东比价 = type=http-response, pattern=^https?://api\.m\.jd\.com/client\.action\?functionId=(wareBusiness|serverConfig|basicConfig), requires-body=1, max-size=0, script-path=https://raw.githubusercontent.com/yichahucha/surge/master/jd_price.js
 
 #BoxJs
-Rewrite: BoxJs = type=http-request, pattern=^https?://boxjs.net, script-path= https://raw.githubusercontent.com/chavyleung/scripts/master/box/chavy.boxjs.js, requires-body=true, timeout=120
+
+Rewrite: BoxJs = type=http-request,pattern=^https?://boxjs.net,script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/box/chavy.boxjs.js, requires-body=true, timeout=120
 
 #知乎去广告
 知乎_处理用户信息 = type=http-response,requires-body=1,max-size=0,pattern=^https?:\/\/api\.zhihu\.com\/people\/,script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/zhihu/zhihu_plus.js
