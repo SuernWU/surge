@@ -73,9 +73,6 @@
 # >>> 签到领现金 {00:11}
 签到领现金 = type=cron, cronexp="0 12 0 * * *", wake-system=1, timeout=600, script-path=https://raw.githubusercontent.com/chinnkarahoi/jd_scripts/master/jd_cash.js
 
-# >>> 京喜签到 {00:11}
-京喜签到 = type=cron, cronexp="30 11 0 * * *", wake-system=1, timeout=600, script-path=https://raw.githubusercontent.com/chinnkarahoi/jd_scripts/master/jx_sign.js
-
 # >>> 京东汽车 {07:10}
 # >>>>> 活动入口：首页—京东汽车—屏幕右中部—车主福利
 京东汽车 = type=cron, cronexp=”30 10 7 * * *“, wake-system=1, timeout=600, script-path=https://raw.githubusercontent.com/chinnkarahoi/jd_scripts/master/jd_car.js
