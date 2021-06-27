@@ -82,6 +82,7 @@
 
 # >>> 京喜财富岛 {*:20}
 京喜财富岛 = type=cron, cronexp=”0 20 * * * *“, wake-system=1, timeout=600, script-path=https://raw.githubusercontent.com/SuernWU/surge/master/jx_cfd.js
+京喜财富岛(改) = type=cron, cronexp=” 30 8,13,19 * * *“, wake-system=1, timeout=600, script-path= https://ghproxy.com/https://raw.githubusercontent.com/sngxpro/jd_scripts-1/master/jd_cfd.js
 
 # >>> 半自动赚京豆 {17:16}
 半自动领京豆 = type=cron, cronexp=”16 17 * * *“, wake-system=1, timeout=600, script-path=https://raw.githubusercontent.com/whyour/hundun/master/quanx/jd_zjd.js
@@ -92,7 +93,8 @@
 京喜token = type=http-request,pattern=^https\:\/\/m\.jingxi\.com\/jxcfd\/consume\/CashOut,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/whyour/hundun/master/quanx/jx_tokens.js
 
 # >>> 财富岛提现 {00:00}
-京喜财富岛提现 = type=cron,cronexp=”0,1,2,3 0 0 * * *“,wake-system=1,timeout=20,script-path=https://ghproxy.com/https://raw.githubusercontent.com/ztxtop/x/aa4ddeca813fbf5c231dd4adaec68a7632cb292c/jx_cfdtx.js
+京喜财富岛提现 = type=cron,cronexp=”0 0 * * *“,wake-system=1,timeout=20,script-path=https://ghproxy.com/https://raw.githubusercontent.com/ztxtop/x/aa4ddeca813fbf5c231dd4adaec68a7632cb292c/jx_cfdtx.js
+京喜财富岛提现 = type=cron,cronexp=”0 0 * * *“,wake-system=1,timeout=20,script-path= https://qxzy.top/rules/QuantumultX/js/zwf234/jx_cfdtx.js
 
 [MITM]
 hostname = %APPEND% api.m.jd.com, jdjoy.jd.com, draw.jdfcloud.com, wq.jd.com, m.jingxi.com
