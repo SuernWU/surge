@@ -1,5 +1,5 @@
 #!name=自用实时更新
-#!desc=iOS原生天气AppAQI-US,淘宝京东比价,BoxJs TF,知乎京东油管去广告,微信跳转屏蔽链接,TestFlight区域限制解除,iOS14 IPA应用安装,
+#!desc=iOS原生天气AppAQI-US,淘宝京东比价,BoxJs TF,知乎京东油管去广告,微信跳转屏蔽链接,TestFlight区域限制解除,iOS14 IPA应用安装,微博广告屏蔽完善
 
 [Rule]
 # 知乎广告拦截
@@ -53,6 +53,21 @@ TF下载修正 = type=http-request,pattern=^https?:\/\/testflight\.apple\.com\/v
 #解决iOS14或IPadOS14无法在移动端安装IPA的问题. 注: 需要使用Shu+捷径或Jsbox辅助安装.
 IPA应用安装 = type=http-request,pattern=^https:\/\/nobyda/(install|download)(\/jsbox)?$,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/IPA_install.js
 
+// 微博下面的评论
+http-response ^https://(api\.weibo\.cn|mapi\.weibo\.com)/2/comments/build_comments\? requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/yjqiang/surge_scripts/main/scripts/weibo/weibo_comment.js
+
+// 微博 推荐 热门/榜单/放映厅… https://api.weibo.cn/2/statuses/unread_hot_timeline?
+// 微博 最新微博 https://api.weibo.cn/2/statuses/friends/timeline?
+// 视频流（短视频上划，微博继续推荐新视频） https://api.weibo.cn/2/video/tiny_stream_video_list?
+http-response ^https://(api\.weibo\.cn|mapi\.weibo\.com)/2/(statuses/unread_hot_timeline|statuses/friends/timeline|video/tiny_stream_video_list)\? requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/yjqiang/surge_scripts/main/scripts/weibo/weibo_statuses.js
+
+// 发现 热点 https://api.weibo.cn/2/cardlist?
+// 发现 搜索 https://api.weibo.cn/2/searchall?
+http-response ^https://(api\.weibo\.cn|mapi\.weibo\.com)/2/(cardlist|searchall)\? requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/yjqiang/surge_scripts/main/scripts/weibo/weibo_cardlist.js
+
+// 每条微博下面 创作者广告共享计划
+http-response ^https://(api\.weibo\.cn|mapi\.weibo\.com)/2/statuses/extend\? requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/yjqiang/surge_scripts/main/scripts/weibo/weibo_statuses_extend.js
+
 [MITM]
-hostname = %APPEND% trade-acs.m.taobao.com, api.m.jd.com, weather-data.apple.com, boxjs.net, duckduckgo.com, www.zhihu.com, api.zhihu.com, zhuanlan.zhihu.com, api.m.jd.com, *.googlevideo.com, weixin110.qq.com, testflight.apple.com, nobyda, 
+hostname = %APPEND% trade-acs.m.taobao.com, api.m.jd.com, weather-data.apple.com, boxjs.net, duckduckgo.com, www.zhihu.com, api.zhihu.com, zhuanlan.zhihu.com, api.m.jd.com, *.googlevideo.com, weixin110.qq.com, testflight.apple.com, nobyda, api.weibo.cn, mapi.weibo.com
 
