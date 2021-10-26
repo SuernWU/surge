@@ -5,5 +5,8 @@
 #AQI-US
 AQI-US = type=http-response,pattern=^https:\/\/weather-data\.apple\.com\/v2\/weather\/[\w-]+\/-?[0-9]+\.[0-9]+\/-?[0-9]+\.[0-9]+\?,requires-body=true,script-path= https://raw.githubusercontent.com/SuernWU/surge/master/AQI.js
 
+JD比价 = type=http-response,pattern=^https?://api\.m\.jd\.com/client\.action\?functionId=(wareBusiness|serverConfig|basicConfig),requires-body=1,script-path=https://raw.githubusercontent.com/yichahucha/surge/master/jd_price.js
+
 [MITM]
-hostname = %APPEND% weather-data.apple.com
+hostname = %APPEND% weather-data.apple.com, api.m.jd.com
+
