@@ -2,7 +2,7 @@
 // Developed by Hackl0us (https://github.com/hackl0us)
 
 const $ = new Env('AQI-US');
-$.token = '69890ecf3fe14804d2f4e94f0ce7f5e413a993b7';
+$.token = 'hackl0us_aqi_token';
 
 // STEP 1: 前往 https://aqicn.org/data-platform/token/ 注册账户，将申请的 API Token 填入下方
 const aqicnToken = $.getdata($.token) || '69890ecf3fe14804d2f4e94f0ce7f5e413a993b7';
@@ -18,7 +18,7 @@ const aqicnToken = $.getdata($.token) || '69890ecf3fe14804d2f4e94f0ce7f5e413a993
 
 const AirQualityStandard = {
 	CN: 'HJ6332012.2113',
-	US: 'EPA_NowCast.2113'
+	US: 'EPA_NowCast.2115'
 }
 
 const AirQualityLevel = {
