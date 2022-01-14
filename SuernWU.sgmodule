@@ -1,5 +1,5 @@
 #!name=自用实时更新
-#!desc=iOS原生天气AppAQI-US,JD比价,IPA应用安装,TestFlight区域限制解除,公众号文章底部广告,优酷爱奇艺暂停广告,油管视频广告,boxjs,spotify,微信外链直接访问,百度搜索防跳转AppStore
+#!desc=iOS原生天气AppAQI-US,JD比价,IPA应用安装,TestFlight区域限制解除,公众号文章底部广告,优酷爱奇艺暂停广告,油管视频广告,boxjs,spotify,微信外链直接访问,百度搜索防跳转AppStore,京东_开屏去广告
 
 [Rule]
 //爱奇艺视频的暂停广告
@@ -34,6 +34,13 @@ spotify-proto = type=http-response,pattern=^https\:\/\/spclient\.wg\.spotify\.co
 //百度防跳转
 百度防跳转 = type=http-response,pattern=^https\:\/\/boxer\.baidu\.com\/scheme\?scheme,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/baidu-no-redirect.js
 
+京东_开屏去广告 = type=http-response,requires-body=1,max-size=0,pattern=^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=start,script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/startup/startup.js
+
+京粉转链 = type=http-response,pattern=^https:\/\/api\.m\.jd\.com/(client\.action|api)\?functionId=(wareBusiness|serverConfig|basicConfig|lite_wareBusiness|pingou_item),requires-body=1,max-size=0,timeout=1000,script-path=https://raw.githubusercontent.com/Fokit/Quantumult-X/main/scripts/jf_Convert.js
+
+
+
+
 [MITM]
-hostname = %APPEND% weather-data.apple.com, api.m.jd.com, nobyda, testflight.apple.com, mp.weixin.qq.com, *.googlevideo.com, spclient.wg.spotify.com, weixin110.qq.com, boxer.baidu.com
+hostname = %APPEND% weather-data.apple.com, api.m.jd.com, nobyda, testflight.apple.com, mp.weixin.qq.com, *.googlevideo.com, spclient.wg.spotify.com, weixin110.qq.com, boxer.baidu.com, 
 
