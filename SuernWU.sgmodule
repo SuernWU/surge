@@ -1,115 +1,112 @@
-#!name=自用实时更新
-#!desc=iOS原生天气AppAQI-US,JD比价,IPA应用安装,TestFlight区域限制解除,公众号文章底部广告,优酷爱奇艺暂停广告,油管视频广告,boxjs,spotify,微信外链直接访问,百度搜索防跳转AppStore,京东_开屏去广告,B站解锁大会员画质每日任务去广告
-
-[Rule]
-//爱奇艺视频的暂停广告
-DOMAIN-SUFFIX, cupid.iqiyi.com, REJECT
-
-//优酷视频的暂停广告
-DOMAIN, iyes.youku.com, REJECT
-
-//油管视频广告 
-URL-REGEX,https?:\/\/.+.googlevideo.com\/ptracking\?pltype=adhost,REJECT
-URL-REGEX,https?:\/\/.+.youtube.com\/api\/stats\/ads,REJECT
-URL-REGEX,https?:\/\/.+.youtube.com\/get_midroll_,REJECT
-URL-REGEX,https?:\/\/.+.youtube.com\/pagead\/,REJECT
-URL-REGEX,https?:\/\/.+.youtube.com\/ptracking\?,REJECT
-URL-REGEX,https?:\/\/.+.youtube.com\/_get_ads,REJECT
-URL-REGEX,https?:\/\/premiumyva.appspot.com\/vmclickstoadvertisersite,REJECT
-URL-REGEX,https?:\/\/s0.2mdn.net\/ads\/,REJECT
-URL-REGEX,https?:\/\/stats.tubemogul.com\/stats\/,REJECT
-URL-REGEX,https?:\/\/youtubei.googleapis.com\/.+ad_break,REJECT
-URL-REGEX,https?:\/\/youtubei.googleapis.com\/youtubei\/.+(ad|log),REJECT
-URL-REGEX,https?:\/\/s\.youtube\.com\/api\/stats\/qoe\?adformat,REJECT
-URL-REGEX,https?:\/\/[\w-]+\.googlevideo\.com\/.+&oad,REJECT-TINYGIF
-
-//Bilibili去广告(全)
-DOMAIN-SUFFIX,cm.bilibili.com,REJECT
-URL-REGEX,^https?:\/\/api\.bilibili\.com\/x\/v2\/dm\/ad,REJECT
-# 可能的一些推广(beta)
-URL-REGEX,^https?:\/\/api\.bilibili\.com\/pgc\/season\/app\/related\/recommend\?,REJECT
-# BiliBili漫画去广告
-URL-REGEX,^https?:\/\/manga\.bilibili\.com\/twirp\/comic\.v\d\.comic\/flash,REJECT
+#!name=自用破解杂项
+#!desc=Safari谷歌搜索重定向,百度搜索防跳转AppStore,微信外链直接访问,boxjs,IPA应用安装,TestFlight区域限制解除,自动存储/合并多个TestFlight账户列表,并可导出/分享TestFlight App,JD比价,百度网盘解锁在线视频倍率/清晰度,百度文库解锁文档阅读权限,spotify,彩云pro,WPS会员,哔哩哔哩去广告、跳转、任务
 
 [URL Rewrite]
-//油管视频广告 
-ctier=[A-Z] citer=A 302
 
-//Bilibili去广告(全)
-# 去除搜索中的大家都在搜
+#～BiliBili_哔哩哔哩_屏蔽IP请求@ddgksf2013
+^https?:\/\/app\.bilibili\.com\/x\/resource\/ip - reject
+#～BiliBili_哔哩哔哩_屏蔽DefaultWord@ddgksf2013
+^https?:\/\/app\.bilibili\.com\/bilibili\.app\.interface\.v1\.Search\/Default - reject
+#～BiliBili_哔哩哔哩_屏蔽首页右上活动[卸载重装]@ddgksf2013
+^https?:\/\/app\.bilibili\.com\/x\/resource\/top\/activity - reject-dict
+#～BiliBili_哔哩哔哩_应用开屏去广告@bm7
+^https://app.bilibili.com/x/v2/splash/show - reject-dict
+#～BiliBili_哔哩哔哩_Defaultword@ddgksf2013
+^https://app.bilibili.com/x/v2/search/defaultwords - reject-dict
+#～BiliBili_哔哩哔哩_Material_Ad@ddgksf2013
+^https?:\/\/api\.bilibili\.com\/x\/vip\/ads\/material\/report - reject-dict
+#～BiliBili_哔哩哔哩_小卡片广告@ddgksf2013
+^https://api.bilibili.com/pgc/season/player/cards - reject-dict
+#～BiliBili_哔哩哔哩_解除SIM卡地区限制
+(^https?:\/\/app\.biliintl.com\/intl\/.+)(&sim_code=\d+)(.+)-302$1$3
+#～BiliBili_哔哩哔哩_去除搜索中的大家都在搜@bm7
 ^https?:\/\/api\.vc\.bilibili\.com\/search_svr\/v\d\/Search\/recommend_words - reject
-# 去除动态中的话题
-^https?:\/\/api\.vc\.bilibili\.com\/topic_svr\/v1\/topic_svr - reject
-# 去除动态中的最常访问
-^https?:\/\/api\.vc\.bilibili\.com\/dynamic_svr\/v1\/dynamic_svr\/mix_uplist - reject
-# 可能的一些推广(beta)
-^https?:\/\/api\.bilibili\.com\/pgc\/season\/app\/related\/recommend\? - reject
-# BiliBili漫画去广告
-^https?:\/\/manga\.bilibili\.com\/twirp\/comic\.v\d\.Comic\/Flash - reject
-^https?:\/\/manga\.bilibili\.com\/twirp\/comic\.v\d\.Comic\/ListFlash - reject
+#～BiliBili_哔哩哔哩_去除动态中的话题@bm7
+^https?:\/\/api\.vc\.bilibili\.com\/topic_svr\/v1\/topic_svr - reject-dict
+#～BiliBili_哔哩哔哩_可能的一些推广(beta)@bm7
+^https?:\/\/api\.bilibili\.com\/pgc\/season\/app\/related\/recommend\? - reject-dict
+#～BiliBili_哔哩哔哩_漫画去广告@ddgksf2013
+^https?:\/\/manga\.bilibili\.com\/twirp\/comic\.v\d\.Comic\/(Flash|ListFlash) - reject-dict
+
+//Safari谷歌搜索重定向
+^https?://(www.)?g.cn https://www.google.com 302
+^https?://(www.)?google.cn https://www.google.com 302
 
 [Script]
-//JD比价
 
-http-response ^https?://api\.m\.jd\.com/client\.action\?functionId=(wareBusiness|serverConfig|basicConfig) requires-body=1,script-path=https://service.2ti.st/QuanX/Script/jd_tb_price/main.js
+//百度防跳转
+百度防跳转 = type=http-response,pattern=^https\:\/\/boxer\.baidu\.com\/scheme\?scheme,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/baidu-no-redirect.js
 
-http-request ^http://.+/amdc/mobileDispatch requires-body=1,script-path=https://service.2ti.st/QuanX/Script/jd_tb_price/main.js
+//微信外链
+解除微信链接限制 = type=http-response,pattern=^https\:\/\/(weixin110\.qq|security.wechat)\.com\/cgi-bin\/mmspamsupport-bin\/newredirectconfirmcgi\?,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/zZPiglet/Task/master/asset/UnblockURLinWeChat.js
+
+//BoxJs
+Rewrite: BoxJs = type=http-request,pattern=^https?://boxjs.net,script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/box/chavy.boxjs.js, requires-body=true, timeout=120
 
 //IPA应用安装
 IPA应用安装 = type=http-request,pattern=^https:\/\/nobyda/(install|download)(\/jsbox)?$,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/IPA_install.js
 
 //TF下载修正
-TF下载修正 = type=http-request,pattern=^https?:\/\/testflight\.apple\.com\/v\d\/accounts\/.+?\/install$,requires-body=1,max-size=0,script-path=https://gist.githubusercontent.com/NobyDa/9be418b93afc5e9c8a8f4d28ae403cf2/raw/TF_Download.js
+TF下载修正 = type=http-request,pattern=^https?:\/\/testflight\.apple\.com\/v\d\/accounts\/.+?\/install$,requires-body=1,script-update-interval=-1,max-size=0,script-path=https://gist.githubusercontent.com/NobyDa/9be418b93afc5e9c8a8f4d28ae403cf2/raw/TF_Download.js
 
-//公众号文章底部广告
-公众号文章底部广告 https://mp.weixin.qq.com/mp/getappmsgad?f=json&
-http-response ^https://mp\.weixin\.qq\.com/mp/getappmsgad\? requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/yjqiang/surge_scripts/main/scripts/wechat/wechat_public_accounts.js
+//TestFlight账户管理
+TestFlight账户管理 = type=http-request,pattern=^https:\/\/testflight\.apple\.com\/v\d\/(app|account|invite)s\/,requires-body=1,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/TestFlight/TestFlightAccount.js
 
-//油管视频广告
-http-request https?:\/\/.+?\.googlevideo\.com\/.+&(oad|ctier)=(?!A),script-path=https://choler.github.io/Surge/Script/YouTube.js
+# > 京东比价
+http-response ^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=(wareBusiness|serverConfig|basicConfig) requires-body=1,script-path= https://raw.githubusercontent.com/zwf234/rules/master/js/jd_price.js
 
-//BoxJs
-Rewrite: BoxJs = type=http-request,pattern=^https?://boxjs.net,script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/box/chavy.boxjs.js, requires-body=true, timeout=120
+//百度网盘 解锁在线视频倍率/清晰度
+http-response https:\/\/pan\.baidu\.com\/rest\/\d\.\d\/membership\/user requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/BaiduCloud.js
+
+//百度文库解锁文档阅读权限
+百度文库=type=http-response,pattern=^https:\/\/appwk\.baidu\.com\/naapi\/user\/getinfo,requires-body=1,script-path=baidulibrary.js
 
 //spotify-proto
 spotify-proto = type=http-response,pattern=^https\:\/\/spclient\.wg\.spotify\.com\/(bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize)$,requires-body=1,binary-body-mode=1,max-size=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-proto.js,script-update-interval=0
 
-//微信外链
-微信外链 = type=http-response,pattern=^https\:\/\/weixin110\.qq\.com\/cgi-bin\/mmspamsupport-bin\/newredirectconfirmcgi,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/weixin-external-links.js,script-update-interval=0
+//彩云pro
+彩云天气pro=type=http-response,pattern=https?:\/\/biz\.caiyunapp\.com\/(membership_rights|v2\/user),requires-body=1,script-path=https://raw.githubusercontent.com/ddgksf2013/Cuttlefish/master/Crack/caiyun.js
 
-//百度防跳转
-百度防跳转 = type=http-response,pattern=^https\:\/\/boxer\.baidu\.com\/scheme\?scheme,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/baidu-no-redirect.js
+//WPS会员
+WPS会员 = type=http-response,pattern=^https?:\/\/.*?account\.wps\.(com|cn)(:\d+)?\/api\/users\/\w+\/overview$,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/I-am-R-E/Functional-Store-Hub/Master/WPSOffice/Script/WPS.js,script-update-interval=0
 
-//京东_开屏去广告
-京东_开屏去广告 = type=http-response,requires-body=1,max-size=0,pattern=^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=start,script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/startup/startup.js
+#～BiliBili_哔哩哔哩_繁体CC字幕转中文简体[自行启用]@ddgksf2013
+biliad=type=http-response,pattern=^https?:\/\/i.\.hdslb\.com\/bfs\/subtitle\/.+\.json$,requires-body=1,script-path=https://github.com/deezertidal/private/raw/master/js-backup/Rewrite/Function/Bilibili_CC.conf
+#～BiliBili_哔哩哔哩_观影页面去广告@ddgksf2013
+biliad=type=http-response,pattern=^https?:\/\/api\.(bilibili|biliapi)\.(com|net)\/pgc\/page\/cinema\/tab\?,requires-body=1,script-path=https://raw.githubusercontent.com/deezertidal/private/master/js-backup/Script/bilibili_json.js
+#～BiliBili_哔哩哔哩_应用开屏广告预加载@yjqiang
+biliad=type=http-response,pattern=^https:\/\/app\.bilibili\.com\/x\/v2\/splash\/list,requires-body=1,script-path=https://raw.githubusercontent.com/deezertidal/private/master/js-backup/Script/bilibili_json.js
+#～BiliBili_哔哩哔哩_去除统一设置的皮肤@ddgksf2013
+biliad=type=http-response,pattern=^https?:\/\/app\.bilibili\.com\/x\/resource\/show\/skin\?,requires-body=1,script-path=https://raw.githubusercontent.com/deezertidal/private/master/js-backup/Script/bilibili_json.js
+#～BiliBili_哔哩哔哩_1080P高码率+4K画质(番剧和影视除外)@ddgksf2013
+biliad=type=http-response,pattern=^https?:\/\/app\.bilibili\.com\/x\/v2\/account\/myinfo\?,requires-body=1,script-path=https://raw.githubusercontent.com/deezertidal/private/master/js-backup/Script/bilibili_json.js
+#～BiliBili_哔哩哔哩_热搜发现@ddgksf2013
+biliad=type=http-response,pattern=^https://app.bilibili.com/x/v2/search/square,requires-body=1,script-path=https://raw.githubusercontent.com/deezertidal/private/master/js-backup/Script/bilibili_json.js
+#～BiliBili_哔哩哔哩_推荐去广告@ddgksf2013
+biliad=type=http-response,pattern=^https?:\/\/app\.bilibili\.com\/x\/v2\/feed\/index,requires-body=1,script-path=https://raw.githubusercontent.com/deezertidal/private/master/js-backup/Script/bilibili_json.js
+#～BiliBili_哔哩哔哩_追番去广告@ddgksf2013
+biliad=type=http-response,pattern=^https?:\/\/api\.(bilibili|biliapi)\.(com|net)\/pgc\/page\/bangumi,requires-body=1,script-path=https://raw.githubusercontent.com/deezertidal/private/master/js-backup/Script/bilibili_json.js
+#～BiliBili_哔哩哔哩_直播去广告@bm7
+biliad=type=http-response,pattern=^https?:\/\/api\.live\.bilibili\.com\/xlive\/app-room\/v1\/index\/getInfoByRoom,requires-body=1,script-path=https://raw.githubusercontent.com/deezertidal/private/master/js-backup/Script/bilibili_json.js
+#～BiliBili_哔哩哔哩_动态去广告@bm7
+biliad=type=http-response,pattern=^https?:\/\/api\.vc\.bilibili\.com\/dynamic_svr\/v1\/dynamic_svr\/dynamic_(history|new)\?,requires-body=1,script-path=https://raw.githubusercontent.com/deezertidal/private/master/js-backup/Script/bilibili_json.js
+#～BiliBili_哔哩哔哩_标籤页处理@ddgksf2013
+biliad=type=http-response,pattern=^https?:\/\/app\.bilibili\.com\/x\/resource\/show\/tab,requires-body=1,script-path=https://raw.githubusercontent.com/deezertidal/private/master/js-backup/Script/bilibili_json.js
+#～BiliBili_哔哩哔哩_我的页面处理@ddgksf2013
+biliad=type=http-response,pattern=^https?:\/\/app\.bilibili\.com\/x\/v2\/account\/mine,requires-body=1,script-path=https://raw.githubusercontent.com/deezertidal/private/master/js-backup/Script/bilibili_json.js
+#～BiliBili_哔哩哔哩_Proto去广告@app2smile
+biliad=type=http-response,pattern=^https:\/\/app\.bilibili\.com\/bilibili\.app\.(view\.v1\.View\/View|dynamic\.v2\.Dynamic\/DynAll)$,requires-body=1,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/bilibili-proto.js
+#～BiliBili_哔哩哔哩_动态广告@yjqiang
+biliad=type=http-response,pattern=^https://app\.bilibili\.com/bilibili\.app\.dynamic\.v2\.Dynamic/DynAll$,requires-body=1,script-path=https://raw.githubusercontent.com/yjqiang/surge_scripts/main/scripts/bilibili/bilibili_dynamic.js
+# bilibili 网页跳转到国际版
+bilibili-redirect = type=http-request,pattern=^https:\/\/d\.bilibili\.com\/bi-li-bi-li-dong-hua,script-path=https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Bilibili/bilibili_redirect.js
 
-//哔哩哔哩
-# 仅限于获取 cookie
-bilibili = type=http-request,pattern=https://api.bilibili.com/x/web-interface/nav,debug=true,script-path=bilibili.js
-
-# 每日定时运行
-# 每天07,14,21点分别运行一次
-bilibili = type=cron,cronexp=0 7-21/7 * * *,wake-system=1,debug=true,script-path=bilibili.js
-
-#B站解锁大会员视频画质
-BiliBili_HD = type=http-response,pattern=https:\/\/ap(p|i)\.bilibili\.com\/((pgc\/player\/api\/playurl)|(x\/v2\/account\/myinfo\?)|(x\/v2\/account/mine\?)),requires-body=true,script-path=https://github.com/Sunert/Script/raw/master/Script/Bilibili/BiliHD.js
-
-//Bilibili去广告(全)
-BiliBili_推荐动态开屏去广告 = type=http-response,pattern=^https:\/\/app\.bilibili\.com\/x\/(v2\/(splash\/(list|show)|feed\/index\?)|resource\/show\/tab\/v2),requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/free1x/rules/main/bilibili-json.js,script-update-interval=0
-BiliBili_播放页面去广告 = type=http-response,pattern=^https:\/\/app\.bilibili\.com\/bilibili\.app\.(view\.v1\.View\/View|dynamic\.v2\.Dynamic\/DynAll)$,requires-body=1,binary-body-mode=1,max-size=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/bilibili-proto.js,script-update-interval=0
-BiliBili_追番去广告 = type=http-response,requires-body=1,max-size=0,pattern=^https?:\/\/api\.bilibili\.com\/pgc\/page\/bangumi,script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/bilibili/bilibili_plus.js
-BiliBili_直播去广告 = type=http-response,requires-body=1,max-size=0,pattern=^https?:\/\/api\.live\.bilibili\.com\/xlive\/app-room\/v1\/index\/getInfoByRoom,script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/bilibili/bilibili_plus.js
-BiliBili_标签页处理 = type=http-response,requires-body=1,max-size=0,pattern=^https?:\/\/app\.bilibili\.com\/x\/resource\/show\/tab,script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/bilibili/bilibili_plus.js
-BiliBili_我的页面处理 = type=http-response,requires-body=1,max-size=0,pattern=^https?:\/\/app\.bilibili\.com\/x\/v2\/account\/mine,script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/bilibili/bilibili_plus.js
-# bili-json = type=http-response,pattern=^https:\/\/app\.bilibili\.com\/x\/(v2\/(splash\/(list|show)|feed\/index)|resource\/show\/tab\/v2),script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/bilibili-json.js, requires-body=true, timeout=10
-bili-proto = type=http-response,pattern=^https:\/\/app\.bilibili\.com\/bilibili\.app\.(view\.v1\.View\/View|dynamic\.v2\.Dynamic\/DynAll)$,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/bilibili-proto.js, requires-body=true, binary-body-mode=true, timeout=10
-
+[General]
+skip-proxy = %APPEND% iosapps.itunes.apple.com
 
 [Panel]
 # 哔哩哔哩(每日任务)
 bilibili = script-name=bilibili, title="哔哩哔哩[每日任务]", content="请刷新", update-interval=3600
 
 [MITM]
-hostname = %APPEND% api.m.jd.com, ms.jr.jd.com, nobyda, testflight.apple.com, mp.weixin.qq.com, *.googlevideo.com, *.youtube.com, youtubei.googleapis.com, spclient.wg.spotify.com, weixin110.qq.com, boxer.baidu.com, app.bilibili.com,grpc.biliapi.net,api.bilibili.com,api.live.bilibili.com,api.vc.bilibili.com,
-
-
+hostname = %APPEND% api.m.jd.com, ms.jr.jd.com, nobyda, testflight.apple.com, mp.weixin.qq.com, spclient.wg.spotify.com, boxer.baidu.com, app.bilibili.com,grpc.biliapi.net,api.bilibili.com,api.live.bilibili.com,api.vc.bilibili.com, manga.bilibili.com,api.biliapi.net, -broadcast.chat.bilibili.com, -*cdn*.biliapi.net, -*tracker*.biliapi.net, d.bilibili.com, buy.itunes.apple.com, www.google.cn, www.g.cn, biz.caiyunapp.com, account.wps.cn,*account.wps.com, pan.baidu.com, appwk.baidu.com
