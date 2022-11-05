@@ -65,7 +65,7 @@ http-response https:\/\/pan\.baidu\.com\/rest\/\d\.\d\/membership\/user requires
 spotify-proto = type=http-response,pattern=^https\:\/\/spclient\.wg\.spotify\.com\/(bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize)$,requires-body=1,binary-body-mode=1,max-size=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-proto.js,script-update-interval=0
 
 //彩云pro
-彩云天气pro=type=http-response,pattern=https?:\/\/biz\.caiyunapp\.com\/(membership_rights|v2\/user),requires-body=1,script-path=https://gitlab.com/ddgksf2013/Cuttlefish/master/Crack/caiyun.js
+彩云天气pro=type=http-response,pattern=https?:\/\/biz\.caiyunapp\.com\/(membership_rights|v2\/user),requires-body=1,script-path=caiyun.js
 
 //WPS会员
 WPS会员 = type=http-response,pattern=^https?:\/\/.*?account\.wps\.(com|cn)(:\d+)?\/api\/users\/\w+\/overview$,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/I-am-R-E/Functional-Store-Hub/Master/WPSOffice/Script/WPS.js,script-update-interval=0
