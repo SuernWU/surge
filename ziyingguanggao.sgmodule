@@ -1,0 +1,47 @@
+#!name=自用去广告
+#!desc=keep广告,优酷爱奇艺暂停广告,Youtube广告,京东、小红书、美团开屏广告,起点广告,微信公众号文章底部广告,
+
+[Rule]
+//keep去广告
+URL-REGEX,^https:\/\/api\.gotokeep\.com\/op-engine-webapp\/v1\/ad,REJECT
+URL-REGEX,^https:\/\/api\.gotokeep\.com\/training\/box\/config,REJECT
+URL-REGEX,^https:\/\/api\.gotokeep\.com\/op-engine-webapp\/v1\/ad\/preload$,REJECT
+URL-REGEX,^https:\/\/api\.gotokeep\.com\/anno\/v1\/upgrade\/check$,REJECT
+
+//爱奇艺视频的暂停广告
+DOMAIN-SUFFIX, cupid.iqiyi.com, REJECT
+
+//优酷视频的暂停广告
+DOMAIN, iyes.youku.com, REJECT
+
+[Script]
+//keep去广告
+KeepMy = type=http-response,pattern=https:\/\/api\.gotokeep\.com\/athena\/v5\/people\/my,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/Maasea/surgeModule/master/Script/Keep/my.js
+KeepBottom = type=http-response,pattern=https:\/\/api\.gotokeep\.com\/config\/v3/basic,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/Maasea/surgeModule/master/Script/Keep/bottom_bar.js
+
+#去除 Youtube 广告
+//模块地址 https://raw.githubusercontent.com/Maasea/sgmodule/master/YoutubeAds.sgmodule
+youtube-proto = type=http-response,pattern=^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide),requires-body=1,binary-body-mode=1,max-size=3145728,script-path=https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Youtube/youtube.js
+
+//京东_开屏去广告
+京东_开屏去广告 = type=http-response,requires-body=1,max-size=0,pattern=^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=start,script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/startup/startup.js
+
+# > 美团外卖去开屏广告 by blackmatrix7
+美团外卖去开屏广告 = type=http-response,requires-body=1,max-size=0,pattern=^https?:\/\/wmapi\.meituan\.com\/api\/v\d+\/loadInfo?,script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/startup/startup.js
+
+# > 小红书去开屏广告 by chouchoui edith.xiaohongshu.com,
+小红书广告 = type=http-response,pattern=^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v2\/system_service\/splash_config,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/chouchoui/QuanX/master/Scripts/xiaohongshu/xiaohongshu.ad.js,script-update-interval=0
+
+//起点去广告
+起点json = type=http-response,pattern=^https:\/\/magev6\.if\.qidian\.com\/argus\/api\/(v4\/client\/getsplashscreen|v2\/deeplink\/geturl|v1\/(client\/getconf|bookshelf\/getHoverAdv|adv\/getadvlistbatch\?positions=iOS_tab|dailyrecommend\/getdailyrecommend)),requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/qidian.js
+
+//微信去除公众号文章底部广告
+http-response ^https?:\/\/mp\.weixin\.qq\.com\/mp\/getappmsgad requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/QuantumultX/File/Wechat.js
+
+[Map Local]
+# 去除 Youtube 广告
+# 使用 Mock 减少开销
+^https?:\/\/[\w-]+\.googlevideo\.com\/initplayback.+&oad data="https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Youtube/tinygif.gif"
+
+[MITM]
+hostname = %APPEND% api.gotokeep.com, static2.keepcdn.com, *.googlevideo.com, youtubei.googleapis.com,wmapi.meituan.com, edith.xiaohongshu.com,magev6.if.qidian.com,mp.weixin.qq.com
