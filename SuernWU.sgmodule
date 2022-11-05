@@ -101,20 +101,14 @@ biliad=type=http-response,pattern=^https://app\.bilibili\.com/bilibili\.app\.dyn
 # bilibili 网页跳转到国际版
 bilibili-redirect = type=http-request,pattern=^https:\/\/d\.bilibili\.com\/bi-li-bi-li-dong-hua,script-path=https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Bilibili/bilibili_redirect.js
 
-//哔哩哔哩
-# 仅限于获取 cookie
-bilibili = type=http-request,pattern=https://api.bilibili.com/x/web-interface/nav,debug=true,script-path=https://api.bilibili.com/x/web-interface/nav,debug=true,script-path= https://raw.githubusercontent.com/SuernWU/surge/master/bilibili.js
+B站每日等级任务 = type=cron,cronexp=30 8 * * *,script-path=https://raw.githubusercontent.com/ClydeTime/Quantumult/main/Script/Task/BiliBili.js
 
-# 每日定时运行
-# 每天07,14,21点分别运行一次
-bilibili = type=cron,cronexp=0 7-21/7 * * *,wake-system=1,debug=true,script-path=https://raw.githubusercontent.com/SuernWU/surge/master/bilibili.js
+#以下cookie获取方式二选其一即可
+B站获取Cookie(APP) = type=http-request,pattern=^https:\/\/app\.bilibili\.com\/x\/resource\/domain\?,script-path=https://raw.githubusercontent.com/ClydeTime/Quantumult/main/Script/Task/BiliBili.js
+B站获取Cookie(网页) = type=http-request,pattern=^https:\/\/m.bilibili.com/$,script-path=https://raw.githubusercontent.com/ClydeTime/Quantumult/main/Script/Task/BiliBili.js
 
 [General]
 skip-proxy = %APPEND% iosapps.itunes.apple.com
 
-[Panel]
-# 哔哩哔哩(每日任务)
-bilibili = script-name=bilibili, title="哔哩哔哩[每日任务]", content="请刷新", update-interval=3600
-
 [MITM]
-hostname = %APPEND% api.m.jd.com, ms.jr.jd.com, nobyda, testflight.apple.com, mp.weixin.qq.com, spclient.wg.spotify.com, boxer.baidu.com, app.bilibili.com,grpc.biliapi.net,api.bilibili.com,api.live.bilibili.com,api.vc.bilibili.com, manga.bilibili.com,api.biliapi.net, -broadcast.chat.bilibili.com, -*cdn*.biliapi.net, -*tracker*.biliapi.net, d.bilibili.com, buy.itunes.apple.com, www.google.cn, www.g.cn, biz.caiyunapp.com, account.wps.cn,*account.wps.com, pan.baidu.com, appwk.baidu.com
+hostname = %APPEND% api.m.jd.com, ms.jr.jd.com, nobyda, testflight.apple.com, mp.weixin.qq.com, spclient.wg.spotify.com, boxer.baidu.com, app.bilibili.com, m.bilibili.com, grpc.biliapi.net,api.bilibili.com,api.live.bilibili.com,api.vc.bilibili.com, manga.bilibili.com,api.biliapi.net, -broadcast.chat.bilibili.com, -*cdn*.biliapi.net, -*tracker*.biliapi.net, d.bilibili.com, buy.itunes.apple.com, www.google.cn, www.g.cn, biz.caiyunapp.com, account.wps.cn,*account.wps.com, pan.baidu.com, appwk.baidu.com
