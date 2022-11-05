@@ -59,13 +59,13 @@ http-response ^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=(wareBusin
 http-response https:\/\/pan\.baidu\.com\/rest\/\d\.\d\/membership\/user requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/BaiduCloud.js
 
 //百度文库解锁文档阅读权限
-百度文库=type=http-response,pattern=^https:\/\/appwk\.baidu\.com\/naapi\/user\/getinfo,requires-body=1,script-path= https://raw.githubusercontent.com/SuernWU/surge/master/baidulibrary.js
+百度文库=type=http-response,pattern=^https:\/\/appwk\.baidu\.com\/naapi\/user\/getinfo,requires-body=1,script-path=https://raw.githubusercontent.com/SuernWU/surge/master/baidulibrary.js
 
 //spotify-proto
 spotify-proto = type=http-response,pattern=^https\:\/\/spclient\.wg\.spotify\.com\/(bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize)$,requires-body=1,binary-body-mode=1,max-size=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-proto.js,script-update-interval=0
 
 //彩云pro
-彩云天气pro=type=http-response,pattern=https?:\/\/biz\.caiyunapp\.com\/(membership_rights|v2\/user),requires-body=1,script-path= https://raw.githubusercontent.com/SuernWU/surge/master/caiyun.js
+彩云天气pro=type=http-response,pattern=https?:\/\/biz\.caiyunapp\.com\/(membership_rights|v2\/user),requires-body=1,script-path=https://raw.githubusercontent.com/SuernWU/surge/master/caiyun.js
 
 //WPS会员
 WPS会员 = type=http-response,pattern=^https?:\/\/.*?account\.wps\.(com|cn)(:\d+)?\/api\/users\/\w+\/overview$,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/I-am-R-E/Functional-Store-Hub/Master/WPSOffice/Script/WPS.js,script-update-interval=0
@@ -100,6 +100,14 @@ biliad=type=http-response,pattern=^https:\/\/app\.bilibili\.com\/bilibili\.app\.
 biliad=type=http-response,pattern=^https://app\.bilibili\.com/bilibili\.app\.dynamic\.v2\.Dynamic/DynAll$,requires-body=1,script-path=https://raw.githubusercontent.com/yjqiang/surge_scripts/main/scripts/bilibili/bilibili_dynamic.js
 # bilibili 网页跳转到国际版
 bilibili-redirect = type=http-request,pattern=^https:\/\/d\.bilibili\.com\/bi-li-bi-li-dong-hua,script-path=https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Bilibili/bilibili_redirect.js
+
+//哔哩哔哩
+# 仅限于获取 cookie
+bilibili = type=http-request,pattern=https://api.bilibili.com/x/web-interface/nav,debug=true,script-path=https://api.bilibili.com/x/web-interface/nav,debug=true,script-path= https://raw.githubusercontent.com/SuernWU/surge/master/bilibili.js
+
+# 每日定时运行
+# 每天07,14,21点分别运行一次
+bilibili = type=cron,cronexp=0 7-21/7 * * *,wake-system=1,debug=true,script-path=https://raw.githubusercontent.com/SuernWU/surge/master/bilibili.js
 
 [General]
 skip-proxy = %APPEND% iosapps.itunes.apple.com
