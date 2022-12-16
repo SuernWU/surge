@@ -51,4 +51,4 @@ B站每日等级任务 = type=cron,cronexp=30 8 * * *,script-path=https://raw.gi
 skip-proxy = %APPEND% iosapps.itunes.apple.com
 
 [MITM]
-hostname = %APPEND% api.m.jd.com, ms.jr.jd.com, nobyda, testflight.apple.com, mp.weixin.qq.com, spclient.wg.spotify.com, boxer.baidu.com,  buy.itunes.apple.com, www.google.cn, www.g.cn, biz.caiyunapp.com, account.wps.cn,*account.wps.com, pan.baidu.com, appwk.baidu.com
+hostname = %APPEND% api.m.jd.com, ms.jr.jd.com, nobyda, testflight.apple.com, mp.weixin.qq.com, spclient.wg.spotify.com, boxer.baidu.com,  buy.itunes.apple.com, www.google.cn, www.g.cn, biz.caiyunapp.com, account.wps.cn, *account.wps.com, pan.baidu.com, appwk.baidu.com
